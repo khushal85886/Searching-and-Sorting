@@ -1,0 +1,61 @@
+package searching_and_sorting;
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class binarySearch {
+
+	public static int[] takeInput()
+	{
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter the size of the array :  ");
+		int size = s.nextInt();
+		
+		int arr[]=new int[size];
+		
+		for(int i=0;i<size;i++)
+		{
+			arr[i]=s.nextInt();
+		}
+		return arr;
+	}
+	
+	public static int binarySearch(int arr[],int num)
+	{
+		int startIndex=0;
+		int endIndex=arr.length;
+		 int i=0;
+		while(arr[i]!=num)
+		{
+			int midIndex=(startIndex+endIndex)/2;
+			
+			if(arr[midIndex]==num)
+			{
+				return midIndex;
+			}
+			else if(arr[midIndex]<num)
+			{
+				startIndex=midIndex;
+			}
+			else
+			{
+				endIndex=midIndex;
+			}
+			i++;
+		}
+		return -1;
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner s = new Scanner(System.in);
+		int arr[]=takeInput();
+		System.out.print("Enter the element to search :  ");
+		int num = s.nextInt();
+		
+		int res=binarySearch(arr, num);
+		System.out.println("the element is present at index : "+res);
+		
+	}
+
+}

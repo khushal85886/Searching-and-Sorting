@@ -1,0 +1,46 @@
+package array;
+import java.util.Scanner;
+
+public class linear_search {
+
+	public static int[] takeInput()
+	{
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter the size of the array : ");
+		int n = s.nextInt();
+		int input[]=new int[n];
+		System.out.println("Enter the eements : ");
+		for (int i =0;i<n ;i++)
+		{
+			input[i]=s.nextInt();
+		}
+		return input;
+	}
+	
+	public static int linearSearch(int input[],int a)
+	{
+		for(int i =0 ;i<input.length;i++)
+		{
+			if(input[i]==a)
+			{
+				return i;
+			}
+		}
+		return 0 ;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner m = new Scanner(System.in);
+		System.out.println("Enter the element to be searched : ");
+		int a= m.nextInt();
+		
+		int arr[] = takeInput();
+		 int index= linearSearch(arr,a);
+		 
+		System.out.println("the element is present at index : "+ index);
+		
+				
+	}
+
+}

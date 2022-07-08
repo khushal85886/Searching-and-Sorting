@@ -1,0 +1,71 @@
+package searching_and_sorting;
+
+public class QuickSort {
+
+	public static void quickSort(int input[],int lo,int hi)
+	{
+//		base case
+		if(lo>=hi)
+		{
+			return;
+		}
+		else
+		{	int pivot=input[hi];
+			int pivotIndex=partition(input,pivot,lo,hi);
+			quickSort(input,lo,pivotIndex-1);
+			quickSort(input,pivotIndex+1,hi);
+		}
+	}
+	
+	public static int partition(int input[],int pivot,int lo,int hi)
+	{
+		
+		int i=lo;
+		int j=lo;
+		
+		while(i<input.length)
+		{
+			if(input[i]>pivot)
+			{
+				i++;
+			}
+			else
+			{
+				swap(input,i,j);
+				i++;
+				j++;
+			}
+			
+		}
+		
+		return j-1;
+	}
+
+	public static void swap(int input[],int i,int j)
+	{
+		int temp=input[i];
+		input[i]=input[j];
+		input[j]=temp;
+	}
+	
+	public static void printArr(int arr[])
+	{
+		int size =arr.length;
+		for(int i=0;i<size;i++)
+		{
+			System.out.print(arr[i]+"  ");
+		}
+	}
+	public static void main(String[] args)
+	{
+		// TODO Auto-generated method stub
+		int arr[]= {9,1,3,5,18,19,4};
+		quickSort(arr, 0, arr.length-1);
+		
+		printArr(arr);
+		
+		
+		}
+}
+
+
